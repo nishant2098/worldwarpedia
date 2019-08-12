@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> World War 1 Timeline</title>
+
+  <style type="text/css">
+    /* RESET CSS FIRST */
+/* https://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, main {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+/*  list-style: none; */
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* STYLES */
+/* --------------------------------
+
+Primary style
+
+-------------------------------- */
+html * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 100%;
+  font-family: "Droid Serif", serif;
+  color: #7f8c97;
+  background-color: #e9f0f5;
+}
+
+a {
+  color: #acb7c0;
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1, h2 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+}
+
+/* --------------------------------
+
+Modules - reusable parts of our design
+
+-------------------------------- */
+.status-container {
+  /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
+  width: 90%;
+  max-width: 1170px;
+  margin: 0 auto;
+}
+.status-container::after {
+  /* clearfix */
+  content: '';
+  display: table;
+  clear: both;
+}
+
+/* --------------------------------
+
+Main components
+
+-------------------------------- */
+header {
+  height: 200px;
+  line-height: 200px;
+  text-align: center;
+  background: #303e49;
+}
+header h1 {
+  color: white;
+  font-size: 18px;
+  font-size: 1.125rem;
+}
+@media only screen and (min-width: 1170px) {
+  header {
+    height: 80px;
+    line-height: 70px;
+  }
+  header h1 {
+    font-size: 24px;
+    font-size: 1.5rem;
+  }
+}
+
+#status-timeline {
+  position: relative;
+  padding: 2em 0;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+#status-timeline::before {
+  /* this is the vertical line */
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 18px;
+  height: 100%;
+  width: 4px;
+  background: #d7e4ed;
+}
+@media only screen and (min-width: 1170px) {
+  #status-timeline {
+    margin-top: 3em;
+    margin-bottom: 3em;
+  }
+  #status-timeline::before {
+    left: 50%;
+    margin-left: -2px;
+  }
+}
+
+.status-timeline-block {
+  position: relative;
+  margin: 2em 0;
+}
+.status-timeline-block:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.status-timeline-block:first-child {
+  margin-top: 0;
+}
+.status-timeline-block:last-child {
+  margin-bottom: 0;
+}
+@media only screen and (min-width: 1170px) {
+  .status-timeline-block {
+    margin: 4em 0;
+  }
+  .status-timeline-block:first-child {
+    margin-top: 0;
+  }
+  .status-timeline-block:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.status-timeline-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+}
+.status-timeline-img img {
+  display: block;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  margin-left: -12px;
+  margin-top: -12px;
+}
+.status-timeline-img.status-picture {
+  background: #75ce66;
+}
+.status-timeline-img.status-movie {
+  background: #c03b44;
+}
+.status-timeline-img.status-location {
+  background: #f0ca45;
+}
+@media only screen and (min-width: 1170px) {
+  .status-timeline-img {
+    width: 60px;
+    height: 60px;
+    left: 50%;
+    margin-left: -30px;
+    /* Force Hardware Acceleration in WebKit */
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+  }
+  .cssanimations .status-timeline-img.is-hidden {
+    visibility: hidden;
+  }
+  .cssanimations .status-timeline-img.bounce-in {
+    visibility: visible;
+    -webkit-animation: status-bounce-1 0.6s;
+    -moz-animation: status-bounce-1 0.6s;
+    animation: status-bounce-1 0.6s;
+  }
+}
+
+@-webkit-keyframes status-bounce-1 {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+  }
+}
+@-moz-keyframes status-bounce-1 {
+  0% {
+    opacity: 0;
+    -moz-transform: scale(0.5);
+  }
+
+  60% {
+    opacity: 1;
+    -moz-transform: scale(1.2);
+  }
+
+  100% {
+    -moz-transform: scale(1);
+  }
+}
+@keyframes status-bounce-1 {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    -o-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+  }
+}
+.status-timeline-content {
+  position: relative;
+  margin-left: 60px;
+  background: white;
+  border-radius: 0.25em;
+  padding: 1em;
+  box-shadow: 0 3px 0 #d7e4ed;
+}
+.status-timeline-content:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.status-timeline-content h2 {
+  color: #303e49;
+}
+.status-timeline-content p, .status-timeline-content ul, .status-timeline-content .status-read-more, .status-timeline-content .status-date {
+  font-size: 13px;
+  font-size: 0.8125rem;
+}
+.status-timeline-content .status-read-more, .status-timeline-content .status-date {
+  display: inline-block;
+}
+.status-timeline-content p {
+  margin: 1em 0;
+  line-height: 1.6;
+}
+.status-timeline-content ul {
+  margin: 1em 0;
+  line-height: 1.6;
+}
+.status-timeline-content .status-read-more {
+  float: right;
+  padding: .8em 1em;
+  background: #acb7c0;
+  color: white;
+  border-radius: 0.25em;
+}
+.no-touch .status-timeline-content .status-read-more:hover {
+  background-color: #bac4cb;
+}
+.status-timeline-content .status-date {
+  float: left;
+  padding: .8em 0;
+  opacity: .7;
+}
+.status-timeline-content::before {
+  content: '';
+  position: absolute;
+  top: 16px;
+  right: 100%;
+  height: 0;
+  width: 0;
+  border: 7px solid transparent;
+  border-right: 7px solid white;
+}
+@media only screen and (min-width: 768px) {
+  .status-timeline-content h2 {
+    font-size: 20px;
+    font-size: 1.25rem;
+  }
+  .status-timeline-content p {
+    font-size: 16px;
+    font-size: 1rem;
+  }
+  .status-timeline-content .status-read-more, .status-timeline-content .status-date {
+    font-size: 14px;
+    font-size: 0.875rem;
+  }
+}
+@media only screen and (min-width: 1170px) {
+  .status-timeline-content {
+    margin-left: 0;
+    padding: 1.6em;
+    width: 45%;
+  }
+  .status-timeline-content::before {
+    top: 24px;
+    left: 100%;
+    border-color: transparent;
+    border-left-color: white;
+  }
+  .status-timeline-content .status-read-more {
+    float: left;
+  }
+  .status-timeline-content .status-date {
+    position: absolute;
+    width: 100%;
+    left: 122%;
+    top: 6px;
+    font-size: 16px;
+    font-size: 1rem;
+  }
+  .status-timeline-block:nth-child(even) .status-timeline-content {
+    float: right;
+  }
+  .status-timeline-block:nth-child(even) .status-timeline-content::before {
+    top: 24px;
+    left: auto;
+    right: 100%;
+    border-color: transparent;
+    border-right-color: white;
+  }
+  .status-timeline-block:nth-child(even) .status-timeline-content .status-read-more {
+    float: right;
+  }
+  .status-timeline-block:nth-child(even) .status-timeline-content .status-date {
+    left: auto;
+    right: 122%;
+    text-align: right;
+  }
+  .cssanimations .status-timeline-content.is-hidden {
+    visibility: hidden;
+  }
+  .cssanimations .status-timeline-content.bounce-in {
+    visibility: visible;
+    -webkit-animation: status-bounce-2 0.6s;
+    -moz-animation: status-bounce-2 0.6s;
+    animation: status-bounce-2 0.6s;
+  }
+}
+
+@media only screen and (min-width: 1170px) {
+  /* inverse bounce effect on even content blocks */
+  .cssanimations .status-timeline-block:nth-child(even) .status-timeline-content.bounce-in {
+    -webkit-animation: status-bounce-2-inverse 0.6s;
+    -moz-animation: status-bounce-2-inverse 0.6s;
+    animation: status-bounce-2-inverse 0.6s;
+  }
+}
+@-webkit-keyframes status-bounce-2 {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-100px);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translateX(20px);
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+  }
+}
+@-moz-keyframes status-bounce-2 {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(-100px);
+  }
+
+  60% {
+    opacity: 1;
+    -moz-transform: translateX(20px);
+  }
+
+  100% {
+    -moz-transform: translateX(0);
+  }
+}
+@keyframes status-bounce-2 {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-100px);
+    -moz-transform: translateX(-100px);
+    -ms-transform: translateX(-100px);
+    -o-transform: translateX(-100px);
+    transform: translateX(-100px);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translateX(20px);
+    -moz-transform: translateX(20px);
+    -ms-transform: translateX(20px);
+    -o-transform: translateX(20px);
+    transform: translateX(20px);
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+@-webkit-keyframes status-bounce-2-inverse {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(100px);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translateX(-20px);
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+  }
+}
+@-moz-keyframes status-bounce-2-inverse {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(100px);
+  }
+
+  60% {
+    opacity: 1;
+    -moz-transform: translateX(-20px);
+  }
+
+  100% {
+    -moz-transform: translateX(0);
+  }
+}
+@keyframes status-bounce-2-inverse {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(100px);
+    -moz-transform: translateX(100px);
+    -ms-transform: translateX(100px);
+    -o-transform: translateX(100px);
+    transform: translateX(100px);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translateX(-20px);
+    -moz-transform: translateX(-20px);
+    -ms-transform: translateX(-20px);
+    -o-transform: translateX(-20px);
+    transform: translateX(-20px);
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0);
+  }
+ .iframe-container {
+  overflow: hidden;
+  // Calculated from the aspect ration of the content (in case of 16:9 it is 9/16= 0.5625)
+  padding-top: 56.25%;
+  position: relative;
+}
+ 
+.iframe-container iframe {
+   border: 0;
+   height: 100%;
+   left: 0;
+   position: absolute;
+   top: 0;
+   width: 100%;
+}
+}
+
+
+  </style>
+ 
+</head>
+<body>
+
+  <header>
+ <U> <h1>World War 1 Timeline</h1></U>
+</header>
+
+<section id="status-timeline" class="status-container">
+
+   <div class="status-timeline-block">
+    <div class="status-timeline-img status-movie">
+<!--      <img src="img/status-icon-movie.svg" alt="Movie"> -->
+    </div> <!-- status-timeline-img -->
+
+
+    <div class="status-timeline-content">
+      <u><h2>Empires before World War 1</h2></u><br>
+      <P>It's important to know about the empires that existed before World war 1 to understand the war better.</P>
+     <iframe width="400" height="315" src="https://www.youtube.com/embed/IyoUWRAharQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <span class="status-date"></span>
+
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+ <div class="status-timeline-block">
+    <div class="status-timeline-img status-movie">
+<!--      <img src="img/status-icon-movie.svg" alt="Movie"> -->
+    </div> <!-- status-timeline-img -->
+
+
+    <div class="status-timeline-content">
+     <U> <h2>Alliances prior to World War 1</h2></U><br>
+      <P>Alliances between nations was one of the main reasons why World War 1 broke out!!</P>
+      <iframe width="400" height="315" src="https://www.youtube.com/embed/KMMAL3v0lA0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <span class="status-date"></span>
+
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+
+    <div class="status-timeline-block">
+    <div class="status-timeline-img status-movie">
+<!--      <img src="img/status-icon-movie.svg" alt="Movie"> -->
+    </div> <!-- status-timeline-img -->
+
+
+    <div class="status-timeline-content">
+     <U> <h2>An Overview of World War 1[Part 1]</h2></U><br>
+      <P>We highly recommend watching this video before you dive into the timeline of World War 1.</P>
+      <iframe width="400" height="315" src="https://www.youtube.com/embed/dHSQAEam2yc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <span class="status-date"></span>
+
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+     <div class="status-timeline-block">
+    <div class="status-timeline-img status-movie">
+<!--      <img src="img/status-icon-movie.svg" alt="Movie"> -->
+    </div> <!-- status-timeline-img -->
+
+
+    <div class="status-timeline-content">
+      <U><h2>An Overview of World War 1[Part 2]</h2></U><br>
+      <P>We highly recommend watching this video before you dive into the timeline of World War 1.</P>
+      <iframe width="400" height="315" src="https://www.youtube.com/embed/Mun1dKkc_As" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <span class="status-date"></span>
+
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+
+  <div class="status-timeline-block">
+
+    <div class="status-timeline-img status-picture">
+<!--      <img src="img/status-icon-picture.svg" alt="Picture"> -->
+    </div> <!-- status-timeline-img -->
+
+    <div class="status-timeline-content">
+     <U> <h2>June 28,1914: Asassination of Archduke Hanz Ferdinand </h2></U>
+<P>
+  The annexation of Bosnia-Herzegovina by the Austro-Hungarian empire has been resented by Serbians and Croatians, They together form a nationalist group called "Black Hand"
+</P>
+<P>
+<iframe width="400" height="315" src="https://www.youtube.com/embed/heKuwogLwnk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</P>
+<P>On 28th June, The Heir of Austro-Hungarian empire, Hanz Ferdinand is visiting with his wife Sophie. The Black Hand nationalist group make an attempt to assisanate the Archduke. Serbian nationalist student, Gavrilo Princip asassinates Archduke and his wife. </P>
+      <a href="#0" class="status-read-more">Read more</a>
+      <span class="status-date"> June 28 1914</span>
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+  <div class="status-timeline-block">
+    <div class="status-timeline-img status-movie">
+<!--      <img src="img/status-icon-movie.svg" alt="Movie"> -->
+    </div> <!-- status-timeline-img -->
+
+    <div class="status-timeline-content">
+     <U> <h2>July 23,1914: Austria-Hungary makes demands on Serbia for retribution</h2></U>
+      <p>Serbians fail to meet their demands.</p>
+      <P><iframe width="400" height="315" src="https://www.youtube.com/embed/huOnuYAyv6w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></P>
+      <a href="#0" class="status-read-more">Read more</a>
+      <span class="status-date">July 23, 1914</span>
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+  <div class="status-timeline-block">
+    <div class="status-timeline-img status-picture">
+<!--      <img src="img/status-icon-picture.svg" alt="Picture"> -->
+    </div> <!-- status-timeline-img -->
+
+    <div class="status-timeline-content">
+     <U> <h2>July 28, 1914: Austria-Hungary declares war on Serbia| Russia begins mobilizing its troops.</h2></U>
+      <p>
+        Prior to the declaration of War, Russia has close ties with Serbia, Following the news of Austrio-Hungarian's declaring war on Serbia, Russia starts mobilizing troops along the border shared with then Germany.</p>
+
+        <P>Also, Russia has an alliance with France via Franco-Russian military convention of 1892. So, With Russia entering the war it also demanded France to mobilise troops arong the western front of Germany.
+      </p>
+      <a href="#0" class="status-read-more">Read more</a>
+      <span class="status-date">July 28, 1914</span>
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+ <div class="status-timeline-block">
+    <div class="status-timeline-img status-movie">
+<!--      <img src="img/status-icon-movie.svg" alt="Movie"> -->
+    </div> <!-- status-timeline-img -->
+
+    <div class="status-timeline-content">
+     <U> <h2>August 1, 1914: Germany declares war on Russia</h2></U>
+      <p>
+        Prior to the war, Germany has an alliance with Austro-Hungarian's and Italy. This was known as triple alliance. So, with Austro-Hungarian's at war with Russia and both Russia and France mobilizing troops along eastern and western borders of Germany, It now declares the war on Russia and as a consequence also on France.
+      </p>
+      <a href="#0" class="status-read-more">Read more</a>
+      <span class="status-date">August 1, 1914</span>
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+
+  <div class="status-timeline-block">
+    <div class="status-timeline-img status-location">
+<!--      <img src="img/status-icon-location.svg" alt="Location"> -->
+    </div> <!-- status-timeline-img -->
+
+    <div class="status-timeline-content">
+      <U><h2>August 3, 1914: Germany declares war on France</h2></U>
+      <p>
+        As France had an alliance with Russia, the Germans had developed a plan known as Schliffen plan which was to come into action if they went to war with both France and Russia.</p>
+
+       <P> So, acting according to this plan they start sending troops to the border of France. But to do this they had to cross Belgium.
+          But, Belgium had signed "Treaty of London" way back in 1839, which meant that the British had to protect the Belgians in a state of war.
+      </p>
+      <P> So, the British give Germans an ultimatum to withdraw from Belgium.
+      </P>
+      <a href="#0" class="status-read-more">Read more</a>
+      <span class="status-date">August 3,1914</span>
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+  <div class="status-timeline-block">
+    <div class="status-timeline-img status-location">
+<!--      <img src="img/status-icon-location.svg" alt="Location"> -->
+    </div> <!-- status-timeline-img -->
+
+    <div class="status-timeline-content">
+     <U> <h2>August 4, 1914: Britain declares war on Germany.</h2></U>
+      <p>The Germans do not withdraw from neutal Belgium which meant that Britain now declares war on Germany.
+      </p>
+      <a href="#0" class="status-read-more">Read more</a>
+      <span class="status-date">August 4, 1914</span>
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+  <div class="status-timeline-block">
+    <div class="status-timeline-img status-movie">
+<!--      <img src="img/status-icon-movie.svg" alt="Movie"> -->
+    </div> <!-- status-timeline-img -->
+
+    <div class="status-timeline-content">
+     <U> <h2>August 23-Aug 30, 1914: Battle of Tannenberg</h2></U>
+      <p>Russia mounts an offensive at Tannenberg in then Prussia. But since the railway lines were of a different gauge in Prussia, Russians have trouble with their supply lines.</p>
+      <P>This allows Germans to surround the Russian second army at Tannenberg, defeating them.</P>
+      <span class="status-date">August 23-August 30, 1914</span>
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+<div class="status-timeline-block">
+    <div class="status-timeline-img status-location">
+<!--      <img src="img/status-icon-location.svg" alt="Location"> -->
+    </div> <!-- status-timeline-img -->
+
+
+    <div class="status-timeline-content">
+    <U>  <h2>September 5- September 23 1914: First Battle of Marne</h2></U>
+      <p>Germans after clearing through Belgium advance to upto 30 miles of paris near the Marne river, Here they are stopped by reinforced French and British forces.</p>
+
+      <p>Following this, The Germans dig trenches north of Aisne river and thus begins 4 years of trench warfare on the western front.</p>
+
+      <P><iframe width="400" height="315" src="https://www.youtube.com/embed/7AOOlxbZN3E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></P>
+      <a href="#0" class="status-read-more">Read more</a>
+      <span class="status-date">September 5- September 23, 1914</span>
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+  <div class="status-timeline-block">
+    <div class="status-timeline-img status-movie">
+<!--      <img src="img/status-icon-movie.svg" alt="Movie"> -->
+    </div> <!-- status-timeline-img -->
+
+    <div class="status-timeline-content">
+     <U> <h2>October 29, 1914: Turkey(Ottoman Empire) enters war</h2></U>
+      <p>Turkey enters on the side of Central powers(Germany-Austria-Hungary-Bulgaria) and helps Germany in naval bombardment of Russia</p>
+      <a href="#0" class="status-read-more">Read more</a>
+      <span class="status-date">October 29,1914</span>
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+
+
+    <div class="status-timeline-block">
+    <div class="status-timeline-img status-picture">
+<!--      <img src="img/status-icon-picture.svg" alt="Picture"> -->
+    </div> <!-- status-timeline-img -->
+
+    <div class="status-timeline-content">
+     <U> <h2>November 5, 1914: Britain and France declare war on Ottoman Empire(Turkey)</h2></U>
+      <p>Britain and France declare war on Turkey because of the help given to Germany.
+      </p>
+      <a href="#0" class="status-read-more">Read more</a>
+      <span class="status-date">November 5, 1914</span>
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+    <div class="status-timeline-block">
+    <div class="status-timeline-img status-movie">
+<!--      <img src="img/status-icon-movie.svg" alt="Movie"> -->
+    </div> <!-- status-timeline-img -->
+
+
+    <div class="status-timeline-content">
+     <U> <h2>December 24, 1914: Unofficial Truce declared at Christmas</h2></U>
+      
+      <a href="#0" class="status-read-more">Read more</a>
+      <span class="status-date">December 24, 1914</span>
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+  <div class="status-timeline-block">
+    <div class="status-timeline-img status-picture">
+<!--      <img src="img/status-icon-picture.svg" alt="Picture"> -->
+    </div> <!-- status-timeline-img -->
+
+    <div class="status-timeline-content">
+     <U> <h2>February 22, 1915:Beginning of unrestricted submarine warfare by Germany </h2></U>
+      <p>The Germans begin to use submarines against Allied merchant ships.
+      </p>
+      <a href="#0" class="status-read-more">Read more</a>
+      <span class="status-date">February 22, 1915</span>
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+   <div class="status-timeline-block">
+    <div class="status-timeline-img status-movie">
+<!--      <img src="img/status-icon-movie.svg" alt="Movie"> -->
+    </div> <!-- status-timeline-img -->
+
+
+    <div class="status-timeline-content">
+     <U> <h2>April 22, 1915: 2nd Battle of Ypres begins</h2></U>
+      <P>The German army initiates the modern era of chemical warfare by launching a chlorine attack on Allied trenches  on the Western Front.Some 5,000 French and Algerian troops are killed.</P>
+      <a href="#0" class="status-read-more">Read more</a>
+      <span class="status-date">April 22, 1915</span>
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+  <div class="status-timeline-block">
+    <div class="status-timeline-img status-picture">
+<!--      <img src="img/status-icon-picture.svg" alt="Picture"> -->
+    </div> <!-- status-timeline-img -->
+
+    <div class="status-timeline-content">
+     <U> <h2>April 25, 1915: Battle of Gallipoli</h2></U>
+      <p>The Allies attack the Ottoman Empire at the Battle of Gallipoli. This campaign will last over eight months and will end as a victory for the Ottomans and the retreat of the Allies.
+      </p>
+      <a href="#0" class="status-read-more">Read more</a>
+      <span class="status-date">April 25, 1915</span>
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+   <div class="status-timeline-block">
+    <div class="status-timeline-img status-movie">
+<!--      <img src="img/status-icon-movie.svg" alt="Movie"> -->
+    </div> <!-- status-timeline-img -->
+
+
+    <div class="status-timeline-content">
+      <U><h2>May 7, 1915:  Lusitania sunk</h2></U>
+      <p>British ocean liner Lusitania is torpedoed by a German U-boat off the southern coast of Ireland. It sinks in just 18 minutes, and nearly 1,200 people are killed, including 128 U.S. citizens.</p>
+      <P><iframe width="400" height="315" src="https://www.youtube.com/embed/B_P48TakY3Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></P>
+      <P>
+        This act sparks international outrage and contributes to the United States joining the war against Germany. 
+      </p>
+      <a href="#0" class="status-read-more">Read more</a>
+      <span class="status-date">May 7, 1915</span>
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+
+      <div class="status-timeline-block">
+    <div class="status-timeline-img status-picture">
+<!--      <img src="img/status-icon-picture.svg" alt="Picture"> -->
+    </div> <!-- status-timeline-img -->
+
+    <div class="status-timeline-content">
+      <U><h2>October 14, 1915 - Bulgaria enters the war on the side of central powers by declaring war on Serbia.</h2></U>
+      <P>The Central Powers troops cross the Danube River and within days capture Belgrade. A massive Serbian retreat follows. Soldiers and their families made their way to the Albanian border through mountains and a steady snowfall</P>
+      <a href="#0" class="status-read-more">Read more</a>
+      <span class="status-date">October 14, 1915</span>
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+      <div class="status-timeline-block">
+    <div class="status-timeline-img status-movie">
+<!--      <img src="img/status-icon-movie.svg" alt="Movie"> -->
+    </div> <!-- status-timeline-img -->
+
+    <div class="status-timeline-content">
+      <U><h2>February 21, 1916: Battle Of Verdun</h2></U>
+      <p>The Germans mounted an attack on the French at Verdun.</p>
+      <P>Over the next 9 months, the French and German armies at Verdun, France, suffer over 700,000 casualties, including some 300,000 killed.</P>
+
+      <P><iframe width="400" height="315" src="https://www.youtube.com/embed/jR_XZyhLSA8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></P>
+      <P> Although the fighting continued for nine months, the battle was inconclusive. </P>
+      <a href="#0" class="status-read-more">Read more</a>
+      <span class="status-date">February 21, 1916</span>
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+      <div class="status-timeline-block">
+    <div class="status-timeline-img status-picture">
+<!--      <img src="img/status-icon-picture.svg" alt="Picture"> -->
+    </div> <!-- status-timeline-img -->
+
+    <div class="status-timeline-content">
+     <U> <h2>May 31, 1916: Battle of Jutland begins.</h2></U>
+      <P>The largest naval battle of the war, the Battle of Jutland, is fought between Britain and Germany in the North Sea. </P>
+      <P>In the two-day battle, the British lose 111,980 tons of shipping with 6,945 casualties. The Germans lose 62,233 tons of shipping with 2,921 casualties. Each side claims victory.</P>
+      <a href="#0" class="status-read-more">Read more</a>
+      <span class="status-date">May 31, 1916</span>
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+ <div class="status-timeline-block">
+    <div class="status-timeline-img status-movie">
+<!--      <img src="img/status-icon-movie.svg" alt="Movie"> -->
+    </div> <!-- status-timeline-img -->
+
+
+    <div class="status-timeline-content">
+     <U> <h2>July 1, 1916: The First Battle of the Somme begins</h2></U>
+      <p>In an effort to draw German troops away from Verdun, the Allies mount a major offensive that opens with a large-scale artillery barrage that lasts five days. </p>
+
+      <P>By the time the Somme campaign ground to a halt some four and a half months later, the combined casualties of both sides topped 1,000,000.</P>
+      <a href="#0" class="status-read-more">Read more</a>
+      <span class="status-date">July 1, 1916</span>
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+
+   <div class="status-timeline-block">
+    <div class="status-timeline-img status-picture">
+<!--      <img src="img/status-icon-picture.svg" alt="Picture"> -->
+    </div> <!-- status-timeline-img -->
+
+    <div class="status-timeline-content">
+     <U> <h2>January 19, 1917 - The British intercept the Zimmerman Telegram.</h2></U>
+      <P>
+         Germany tries to convince Mexico to join the war in the telegram. This will result in the United States declaring war on Germany.
+      </P>
+      <P><iframe width="400" height="315" src="https://www.youtube.com/embed/Gedy8LwQTaw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></P>
+       <p>In the decoded message, German Foreign Minister Arthur Zimmermann promises the return of Texas, New Mexico and Arizona to Mexico as reward for siding with Germany if the U.S. enters the war.</p>
+      <a href="#0" class="status-read-more">Read more</a>
+      <span class="status-date">January 19, 1917</span>
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+ <div class="status-timeline-block">
+    <div class="status-timeline-img status-movie">
+<!--      <img src="img/status-icon-movie.svg" alt="Movie"> -->
+    </div> <!-- status-timeline-img -->
+
+
+    <div class="status-timeline-content">
+      <U><h2>March 8, 1917: The Russian Revolution begins.</h2></U>
+      <p>Tsar Nicholas II abdicates the throne after a week of riots in the Russian capital of St. Petersburg. The Russian Revolution saw the overthrow of the Romanov dynasty and, ultimately, the rise to power of Vladimir Lenin and the Bolsheviks.</p>
+      <P><iframe width="400" height="315" src="https://www.youtube.com/embed/ATuMxyoVh_8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></P>
+      <a href="#0" class="status-read-more">Read more</a>
+      <span class="status-date">March 8, 1917</span>
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+     <div class="status-timeline-block">
+    <div class="status-timeline-img status-picture">
+<!--      <img src="img/status-icon-picture.svg" alt="Picture"> -->
+    </div> <!-- status-timeline-img -->
+
+    <div class="status-timeline-content">
+      <U><h2>April 6 ,1917: The United States enters the war, declaring war on Germany.</h2></U>
+      <p> In his address to Congress four days earlier, U.S. Pres. Woodrow Wilson had cited Germany’s practice of unrestricted submarine warfare and the “Zimmermann Telegram” as key reasons behind the abandonment of his long-standing policy of neutrality.</p>
+<P><iframe width="400" height="315" src="https://www.youtube.com/embed/dHXzusNSF60" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></P>
+      <P>The day after an overwhelming majority in the Senate votes for war, President Wilson signs the declaration. The United States quickly puts the entire country on the road to war.</P>
+      <a href="#0" class="status-read-more">Read more</a>
+      <span class="status-date">April 6, 1917</span>
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+ <div class="status-timeline-block">
+    <div class="status-timeline-img status-movie">
+<!--      <img src="img/status-icon-movie.svg" alt="Movie"> -->
+    </div> <!-- status-timeline-img -->
+
+
+    <div class="status-timeline-content">
+      <U><h2>November 7,1917 - The Bolsheviks, led by Vladimir Lenin, overthrow the Russian government. </h2></U>
+      <br>
+      <a href="#0" class="status-read-more">Read more</a>
+      <span class="status-date">November 7,1917</span>
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+
+  <div class="status-timeline-block">
+    <div class="status-timeline-img status-picture">
+<!--      <img src="img/status-icon-picture.svg" alt="Picture"> -->
+    </div> <!-- status-timeline-img -->
+
+    <div class="status-timeline-content">
+     <U> <h2>December 17,1917 - The Russians agree to peace with the Central powers and leave the war. </h2></U><br>
+      <a href="#0" class="status-read-more">Read more</a>
+      <span class="status-date">December 17, 1917</span>
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+
+   <div class="status-timeline-block">
+    <div class="status-timeline-img status-movie">
+<!--      <img src="img/status-icon-movie.svg" alt="Movie"> -->
+    </div> <!-- status-timeline-img -->
+
+
+    <div class="status-timeline-content">
+      <U><h2>November 20, 1917: The Attack at Cambrai</h2></U>
+      <P>British mount an offensive at Cambria, The Germans are taken by surprise since no artillery barrage precedes the attack. The tanks penetrate the lines by more than 10,000 yards. </P>
+
+      <P>Ten days later, the Germans counterattack, regaining most ground lost.</P>
+      <a href="#0" class="status-read-more">Read more</a>
+      <span class="status-date">November 20, 1917</span>
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+
+  <div class="status-timeline-block">
+    <div class="status-timeline-img status-picture">
+<!--      <img src="img/status-icon-picture.svg" alt="Picture"> -->
+    </div> <!-- status-timeline-img -->
+
+    <div class="status-timeline-content">
+     <U> <h2>January 8, 1918:  President Woodrow Wilson issues his "Fourteen Points" for peace and an end to the war. </h2></U>
+      <P>
+        The peace plan includes independence for Poland, restoration of Belgian independence, the return of Alsace-Lorraine to France, an end to secret diplomacy, autonomy of subject nationalities and the formation of a League of Nations.
+      </P>
+      <p><iframe width="400" height="315" src="https://www.youtube.com/embed/XMElagkUBmY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+      <a href="#0" class="status-read-more">Read more</a>
+      <span class="status-date">January 8, 1918</span>
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+ <div class="status-timeline-block">
+    <div class="status-timeline-img status-movie">
+<!--      <img src="img/status-icon-movie.svg" alt="Movie"> -->
+    </div> <!-- status-timeline-img -->
+
+
+    <div class="status-timeline-content">
+    <U>  <h2>March 3, 1918:Treaty of Brest-Litovsk</h2></U>
+      <P>
+        Treaty of Brest-Litovsk is signed by Soviet Russia and Germany.Russia surrenders its claim to Ukraine, to its Polish and Baltic territories, and to Finland.
+      </P>
+
+      <P>Bolshevik negotiator, Leon Trotsky, laments; “This is a peace that Russia, grinding her teeth, is forced to accept.”</P>
+      <a href="#0" class="status-read-more">Read more</a>
+      <span class="status-date">March 3, 1918</span>
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+
+
+  <div class="status-timeline-block">
+    <div class="status-timeline-img status-picture">
+<!--      <img src="img/status-icon-picture.svg" alt="Picture"> -->
+    </div> <!-- status-timeline-img -->
+
+    <div class="status-timeline-content">
+     <U> <h2>March 21, 1918: German Spring Offensive</h2></U>
+      <P>
+        Germany launches the Spring Offensive hoping to defeat the Allies before reinforcements from the United States can be deployed.
+      </P>
+      <a href="#0" class="status-read-more">Read more</a>
+      <span class="status-date">March 21, 1918</span>
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+ <div class="status-timeline-block">
+    <div class="status-timeline-img status-movie">
+<!--      <img src="img/status-icon-movie.svg" alt="Movie"> -->
+    </div> <!-- status-timeline-img -->
+
+
+    <div class="status-timeline-content">
+     <U> <h2>July 17, 1918: Bolsheviks murder Czar of Russia</h2></U>
+      <P>The former Czar Nicholas II, his wife and children, are shot by Bolsheviks at Ekaterinburg.</P>
+      <a href="#0" class="status-read-more">Read more</a>
+      <span class="status-date">July 17, 1918</span>
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+<div class="status-timeline-block">
+    <div class="status-timeline-img status-picture">
+<!--      <img src="img/status-icon-picture.svg" alt="Picture"> -->
+    </div> <!-- status-timeline-img -->
+
+    <div class="status-timeline-content">
+     <U> <h2>July 15, 1918- The Second Battle of the Marne begins.</h2></U>
+      <P>This battle will end on August 6 as a decisive victory for the Allies. </P>
+      <a href="#0" class="status-read-more">Read more</a>
+      <span class="status-date">July 15, 1918</span>
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+ <div class="status-timeline-block">
+    <div class="status-timeline-img status-movie">
+<!--      <img src="img/status-icon-movie.svg" alt="Movie"> -->
+    </div> <!-- status-timeline-img -->
+
+
+    <div class="status-timeline-content">
+      <U><h2>August 8-11,1918: Battle of Amiens</h2></U>
+      <p>
+        The British attack of the German sector at Amiens. Also, Allies break through through Salonika. This forced Bulgaria to sue for peace.
+      </p>
+      <a href="#0" class="status-read-more">Read more</a>
+      <span class="status-date">>8 – 11 August,1918</span>
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+<div class="status-timeline-block">
+    <div class="status-timeline-img status-picture">
+<!--      <img src="img/status-icon-picture.svg" alt="Picture"> -->
+    </div> <!-- status-timeline-img -->
+
+    <div class="status-timeline-content">
+     <U> <h2>October 30,1918: Armistice with Turkey</h2></U>
+      <P>
+        The allies had successfully pushed the Turkish army back and the Turks were forced to ask for an armistice.
+      </P>
+      <a href="#0" class="status-read-more">Read more</a>
+      <span class="status-date">October 30, 1918</span>
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+  <div class="status-timeline-block">
+    <div class="status-timeline-img status-movie">
+<!--      <img src="img/status-icon-movie.svg" alt="Movie"> -->
+    </div> <!-- status-timeline-img -->
+
+
+    <div class="status-timeline-content">
+     <U> <h2>November 1918: Collapse of Hindenberg line.</h2></U>
+      <p>
+         The allies had pushed the Germans back beyond the Hindenberg line.
+      </p>
+      <a href="#0" class="status-read-more">Read more</a>
+      <span class="status-date">November, 1918</span>
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+<div class="status-timeline-block">
+    <div class="status-timeline-img status-picture">
+<!--      <img src="img/status-icon-picture.svg" alt="Picture"> -->
+    </div> <!-- status-timeline-img -->
+
+    <div class="status-timeline-content">
+     <U> <h2>November 9,1918: Wilhelm Kaiser of Germany abdicated.</h2></U>
+      <p>
+         German Republic proclaimed as Kaiser Wilhelm II abdicates. The next day, the ex-Kaiser and his entourage flee to Holland; they arrive at Eysden, on the frontier, at 7:30 a.m.
+      </p>
+      <a href="#0" class="status-read-more">Read more</a>
+      <span class="status-date">November 9, 1918</span>
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+ <div class="status-timeline-block">
+    <div class="status-timeline-img status-movie">
+<!--      <img src="img/status-icon-movie.svg" alt="Movie"> -->
+    </div> <!-- status-timeline-img -->
+
+
+    <div class="status-timeline-content">
+     <U> <h2>November 11,1918: Germany agrees to an armistice and the fighting comes to an end at 11am on the 11th day of the 11th month. 
+</h2></U>
+
+<p>
+   Fighting ends on the Western Front Paris time 11:00 a.m in the French town of Redonthes, where Germany signs this armistice with the Allied Powers. The terms are harsh, intended to show German acceptance of defeat and to prevent any lengthy break for Germany to regroup and start military action again.
+</p>
+      <a href="#0" class="status-read-more">Read more</a>
+      <span class="status-date">November 11, 1918</span>
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+  <div class="status-timeline-block">
+    <div class="status-timeline-img status-movie">
+<!--      <img src="img/status-icon-movie.svg" alt="Movie"> -->
+    </div> <!-- status-timeline-img -->
+
+
+    <div class="status-timeline-content">
+     <U> <h2> 28 June 1919: Treaty Of Versailles </h2></U>
+
+<p>
+  The Paris Peace Conference opened on January 18, 1919, with the goal of developing a treaty that would punish Germany and meet the goals of the various Allied Powers. Negotiating the treaty, which would be known as the Treaty of Versailles, was a long and complex process.
+</p>
+
+<P><iframe width="400" height="315" src="https://www.youtube.com/embed/o1IFePaNENQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></P>
+      <span class="status-date">June 28,1919</span>
+    </div> <!-- status-timeline-content -->
+  </div> <!-- status-timeline-block -->
+
+
+
+
+
+
+
+
+</section> <!-- status-timeline -->
+</body>
+</html>
